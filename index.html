@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>💘 Will You Be My Valentine? 💘</title>
+  <style>
+    /* Center everything on the screen */
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Arial', sans-serif;
+      background-color: #ffe6ee;
+      color: #ff4d6d;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 40px;
+    }
+
+    button {
+      font-size: 1.5em;
+      padding: 15px 30px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.3s;
+    }
+
+    #yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background-color: #ccc;
+      color: #333;
+    }
+
+    #no:hover {
+      transform: translateX(50px);
+    }
+
+    #response {
+      margin-top: 50px;
+      font-size: 2em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💘 Cupid Says: Will You Be My Valentine? 💘</h1>
+
+  <div>
+    <button id="yes" onclick="yesClicked()">Yes 💖</button>
+    <button id="no" onmouseover="moveNo()">No 💔</button>
+  </div>
+
+  <div id="response"></div>
+
+  <script>
+    const noButton = document.getElementById("no");
+    const response = document.getElementById("response");
+    let noCounter = 0;
+
+    function moveNo() {
+      noCounter++;
+      const x = (Math.random() - 0.5) * 300; // random horizontal shift
+      const y = (Math.random() - 0.5) * 100; // random vertical shift
+      noButton.style.transform = `translate(${x}px, ${y}px)`;
+      response.textContent = "The No button is just for fun! 😉";
+    }
+
+    function yesClicked() {
+      response.textContent = "YAY! 💘 Can't wait to see you on Feb 14th!";
+      noButton.style.display = "none"; // hide No button after yes
+    }
+  </script>
+
+</body>
+</html>
